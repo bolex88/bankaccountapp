@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import BankAccounts from './BankAccounts'
+import AddBankAccount from './AddBankAccount'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  state = {
+    bankaccounts: [
+      {id: 1, content: ''}
+    ]
+  }
+  addBankAccount = (bankaccount) => {
+    bankaccount.id = Math.random();
+    let bankaccounts = [...this.state.bankaccounts, bankaccount]
+    this.setState({
+      bankaccounts
+    })
+  }
+  render() {
+    return (
+      <div className="bankaccount-app container">
+          <h1 className="center blue-text">Bank Accounts</h1>
+          <BankAccounts bankaccounts={this.state.bankaccounts} />
+          <AddBankAccount addBankAccount={this.addBankAccount} />
+      </div>
+    );
+  }
+  
 }
 
 export default App;
