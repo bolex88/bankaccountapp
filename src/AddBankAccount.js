@@ -2,27 +2,25 @@ import React, { Component } from 'react';
 
 class AddBankAccount extends Component {
     state = {
-        AccountName: "",
-        AccountNumber: "",
-        BankName: "",
-        BankBranch: ""
+            account_name: "",
+            account_number: "",
+            bank_name: "",
+            bank_branch: ""
     }
     handleChange = (e) => {
         this.setState({
-            AccountName: e.target.value,
-            AccountNumber: e.target.value,
-            BankName: e.target.value,
-            BankBranch: e.target.value
+            [e.target.name]: e.target.value
         })
     }
     handelSubmit = (e) => {
+        // console.log(this.state)
         e.preventDefault();
         this.props.addBankAccount(this.state);
         this.setState({
-            AccountName: '',
-            AccountNumber: '',
-            BankName: '',
-            BankBranch: ''
+            account_name: "",
+            account_number: "",
+            bank_name: "",
+            bank_branch: ""
         })
     }
 
@@ -31,13 +29,16 @@ class AddBankAccount extends Component {
             <div>
                 <form onSubmit={this.handelSubmit}>
                     <label>AccountName:</label>
-                    <input type="text" onChange={this.handleChange} value={this.state.content} />
+                    <input type="text" name="account_name" onChange={this.handleChange} value={this.state.account_name} />
                     <label>AccountNumber:</label>
-                    <input type="number" onChange={this.handleChange} value={this.state.content} />
+                    <input type="number" name="account_number" onChange={this.handleChange} value={this.state.account_number} />
                     <label>BankName:</label>
-                    <input type="text" onChange={this.handleChange} value={this.state.content} />
+                    <input type="text" name="bank_name" onChange={this.handleChange} value={this.state.bank_name} />
                     <label>BankBranch:</label>
-                    <input type="text" onChange={this.handleChange} value={this.state.content} />
+                    <input type="text" name="bank_branch" onChange={this.handleChange} value={this.state.bank_branch} />
+                    <button className="btn blue" onSubmit={this.handelSubmit}>
+                        Submit
+                    </button>
                 </form>
             </div>
         )

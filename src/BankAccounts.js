@@ -7,8 +7,8 @@ import React from 'react'
             bankaccounts.map(bankacount => {
                 return (
                     <div className="collection-it" key={bankacount.id}>
-                       <span onClick={() => {deleteBankAccount(bankacount.id)}}>{bankacount.AccountName, bankacount.AccountNumber, bankacount.BankName, bankacount.BankBranch}</span>
-                       
+                       <span onClick={() => {deleteBankAccount(bankacount.id)}}>{bankacount.state}</span>
+                       <span onClick={() => {editBankAccount(bankacount.id)}}>{bankacount.state}</span>
                     </div>
                 )
             })

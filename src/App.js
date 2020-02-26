@@ -6,7 +6,7 @@ import AddBankAccount from './AddBankAccount'
 class App extends Component {
   state = {
     bankaccounts: [
-      {id: 1, AccountName: '', AccountNumber: '', BankName: '', BankBranch: ''}
+      {id: 1, account_name: '', account_number: '', bank_name: '', bank_branch: ''}
     ]
   }
   editBankAccount = (id) => {
@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <div className="bankaccount-app container">
           <h1 className="center blue-text">Bank Accounts</h1>
-          <BankAccounts bankaccounts={this.state.bankaccounts} deleteBankAccount={this.deleteBankAccount} />
+          <BankAccounts bankaccounts={this.state.bankaccounts} deleteBankAccount={this.deleteBankAccount} editBankAccount={this.editBankAccount} />
           <AddBankAccount addBankAccount={this.addBankAccount} />
       </div>
     );
