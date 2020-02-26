@@ -1,19 +1,28 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class AddBankAccount extends Component {
     state = {
-        content: ''
+        AccountName: "",
+        AccountNumber: "",
+        BankName: "",
+        BankBranch: ""
     }
     handleChange = (e) => {
         this.setState({
-            content: e.target.value
+            AccountName: e.target.value,
+            AccountNumber: e.target.value,
+            BankName: e.target.value,
+            BankBranch: e.target.value
         })
     }
     handelSubmit = (e) => {
         e.preventDefault();
         this.props.addBankAccount(this.state);
         this.setState({
-            content: ''
+            AccountName: '',
+            AccountNumber: '',
+            BankName: '',
+            BankBranch: ''
         })
     }
 

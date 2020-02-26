@@ -6,8 +6,24 @@ import AddBankAccount from './AddBankAccount'
 class App extends Component {
   state = {
     bankaccounts: [
-      {id: 1, content: ''}
+      {id: 1, AccountName: '', AccountNumber: '', BankName: '', BankBranch: ''}
     ]
+  }
+  editBankAccount = (id) => {
+    const bankaccounts = this.state.bankaccounts.find(bankaccount =>{
+      return bankaccount.id !== id
+    })
+    this.setState({
+      bankaccounts
+    })
+  }
+  deleteBankAccount = (id) => {
+    const bankaccounts = this.state.bankaccounts.filter(bankaccount => {
+      return bankaccount.id !== id
+    });
+    this.setState({
+      bankaccounts
+    })
   }
   addBankAccount = (bankaccount) => {
     bankaccount.id = Math.random();
@@ -20,7 +36,7 @@ class App extends Component {
     return (
       <div className="bankaccount-app container">
           <h1 className="center blue-text">Bank Accounts</h1>
-          <BankAccounts bankaccounts={this.state.bankaccounts} />
+          <BankAccounts bankaccounts={this.state.bankaccounts} deleteBankAccount={this.deleteBankAccount} />
           <AddBankAccount addBankAccount={this.addBankAccount} />
       </div>
     );
