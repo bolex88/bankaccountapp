@@ -13,7 +13,7 @@ class AddBankAccount extends Component {
         })
     }
     handelSubmit = (e) => {
-        // console.log(this.state)
+        console.log(this.state)
         e.preventDefault();
         this.props.addBankAccount(this.state);
         this.setState({
@@ -36,9 +36,10 @@ class AddBankAccount extends Component {
                     <input type="text" name="bank_name" onChange={this.handleChange} value={this.state.bank_name} />
                     <label>BankBranch:</label>
                     <input type="text" name="bank_branch" onChange={this.handleChange} value={this.state.bank_branch} />
-                    <button className="btn blue" onSubmit={this.handelSubmit}>
+                    {/* <button className="btn blue" onSubmit={this.handelSubmit}>
                         Submit
-                    </button>
+                    </button> */}
+                    <input type="submit" value="Submit" />
                 </form>
             </div>
         )
