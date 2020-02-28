@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BankAccounts from './BankAccounts'
 import AddBankAccount from './AddBankAccount'
+import UpdateBankAccount from './UpdateBankAccount'
 
 
 class App extends Component {
@@ -36,8 +37,9 @@ class App extends Component {
     return (
       <div className="bankaccount-app container">
           <h1 className="center blue-text">Bank Accounts</h1>
-          <BankAccounts bankaccounts={this.state.bankaccounts} deleteBankAccount={this.deleteBankAccount} editBankAccount={this.editBankAccount} />
+          <BankAccounts bankaccounts={this.state.bankaccounts} deleteBankAccount={this.deleteBankAccount} />
           <AddBankAccount addBankAccount={this.addBankAccount} />
+          <UpdateBankAccount updatebankaccount={this.state.bankaccounts} editBankAccount={this.editBankAccount} />
       </div>
     );
   }
